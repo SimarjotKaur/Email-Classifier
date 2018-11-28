@@ -15,3 +15,9 @@ NOTE: For the proper execution of the code, update the paths for:
 a. the final csv file to be created (‘final_dataset.csv’).
 b. fradulent_emails.txt file (file containing fraud emails).
 c. emails.csv file (file containing spam and normal emails).
+
+II. Email_Classification.py
+This file involves the complete process of email processing and classification.
+
+NOTE:
+For the execution of the code, change the path for final_dataset.csv that was created in the previous step for the variable ‘input_dataset’.
