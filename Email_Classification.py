@@ -31,7 +31,6 @@ from matplotlib import rcParams
 import warnings
 warnings.filterwarnings('ignore')
 
-'''****************Self-implementation starts*****************'''
 class Data_Preprocessing:
     emails= pd.DataFrame()
     
@@ -101,8 +100,7 @@ class Data_Preprocessing:
         print('Features_count: ', features_count.shape)
         print('\n')
         return features_count
-        
-        
+                
     def split_train_test(self, features):
         global emails
         features_train, features_test, labels_train, labels_test = train_test_split(features, emails['Label'], test_size=0.3, random_state=111)
@@ -112,8 +110,6 @@ class Data_Preprocessing:
         print('Labels_test: ', labels_test.shape)
         print('\n')
         return features_train, features_test, labels_train, labels_test
-        
-        '''*******************self-implementation ends****************'''       
 
 class Parameter_tuning:
     
@@ -192,7 +188,6 @@ class Parameter_tuning:
         print('----------------------------------------------------------------')
         print('\n')
         
-        '''***************self-implementation starts*********************'''
         #Logistic Regression
         print('-------------Logistic Regression----------------')
         slvr = {'newton-cg' : 'newton-cg', 'lbfgs': 'lbfgs'}
@@ -208,7 +203,6 @@ class Parameter_tuning:
         print(df[df['Score'] == df['Score'].max()])
         print('----------------------------------------------------------------')
         print('\n')
-        '''***************self-implementation ends*********************'''
         
         #Ensemble Classifiers
         print('Ensembles')
@@ -276,7 +270,6 @@ class Parameter_tuning:
         print('----------------------------------------------------------------')
         print('\n')
         
-        '''**********************self-implementation starts******************************'''
         #SVM with Stochastic Gradient Descent Learning
         print('SVM with Stochastic Gradient Descent Learning')
         pred_scores_sgd_svm = []
@@ -307,7 +300,6 @@ class Parameter_tuning:
         print('************Parameter tunning finished successfully*************')
         print('----------------------------------------------------------------')
         print('\n')
-        '''***************self-implementation ends*********************'''
         
 class Email_Classifictaion:
     clfs={}
@@ -326,7 +318,6 @@ class Email_Classifictaion:
         emails.hist(column='Length', by='Label', bins=50, figsize=(11,5))
         return
 
-    '''***************self-implementation starts*********************'''
     #Function created to fit the classifiers       
     def train_classifier(self,clf, feature_train, labels_train):
         clf.fit(feature_train, labels_train)
@@ -360,14 +351,12 @@ class Email_Classifictaion:
         plt.title('Distribution by Classifier')
         plt.grid(True)
         plt.legend(bbox_to_anchor=(0.5, 1), loc=0, borderaxespad=0.)
-        '''********************self-implementation ends***************************'''
         
     def classification(self, features_train, features_test, labels_train, labels_test):
         global clfs, df
         print('Initializing classifiers')
         print('----------------------------------------------------------------')
         
-        '''*********************self-implementation starts*************************'''
         svc = SVC(kernel='sigmoid', gamma=1)
         knc = KNeighborsClassifier(n_neighbors=5)
         mnb = MultinomialNB(alpha=0.01)
@@ -377,7 +366,6 @@ class Email_Classifictaion:
         abc = AdaBoostClassifier(n_estimators=25, random_state=111)
         bc = BaggingClassifier(n_estimators=9, random_state=111)
         etc = ExtraTreesClassifier(n_estimators=29, random_state=111)
-        '''*********************self-implementation ends************************'''
         
         #Create a dictionary for the classifiers
         clfs = {'SVC' : svc,'KN' : knc, 'NB': mnb, 'DT': dtc, 'LR': lrc, 'RF': rfc, 'AdaBoost': abc, 'BgC': bc, 'ETC': etc}
@@ -394,7 +382,6 @@ class Email_Classifictaion:
         print(df)
         print('\n')
         
-        '''**************************self-implementation starts******************************'''
         svc.fit(features_train, labels_train)
         pred= svc.predict(features_test)
         print('Classifictaion Report of SVC')
@@ -492,7 +479,6 @@ class Email_Classifictaion:
         print('Classifictaion completed successfully')
         print('-------------------------------------')
         print('\n')
-        '''**************************self-implementation ends*******************************'''
         
 class Email_Classification_Stemming:
     df4= pd.DataFrame()
@@ -506,7 +492,6 @@ class Email_Classification_Stemming:
         global clfs_2, df4
         email_class_obj= Email_Classifictaion()
         
-        '''**************************self-implementation starts*******************************'''
         print('Initializing classifiers for stemming with different parameters')
         print('----------------------------------------------------------------')
         svc = SVC(kernel='sigmoid', gamma=0.7)
@@ -518,7 +503,6 @@ class Email_Classification_Stemming:
         abc = AdaBoostClassifier(n_estimators=65, random_state=111)
         bc = BaggingClassifier(n_estimators=27, random_state=111)
         etc = ExtraTreesClassifier(n_estimators=25, random_state=111)
-        '''**************************self-implementation ends********************************'''
         
         #Create a dictionary for the classifiers
         clfs_2 = {'SVC' : svc,'KN' : knc, 'NB': mnb, 'DT': dtc, 'LR': lrc, 'RF': rfc, 'AdaBoost': abc, 'BgC': bc, 'ETC': etc}
@@ -536,7 +520,6 @@ class Email_Classification_Stemming:
         print('----------------------------------------------------------------')
         print('\n')
         
-        '''**************************self-implementation starts******************************'''
     def Stochastic_Gradient_stem(self, features_train, features_test, labels_train, labels_test):
         global df4
         
@@ -617,7 +600,6 @@ class Email_Classification_Stemming:
         print('Classifictaion completed successfully')
         print('-------------------------------------')
         print('\n')
-        '''************************self-implementation ends*****************************'''
         
 class Length_Matrix:
     df7= pd.DataFrame()
@@ -647,7 +629,6 @@ class Length_Matrix:
         df7 = pd.DataFrame.from_items(pred_scores,orient='index', columns=['Score3'])
         print(df7)
         
-        '''***************************self-implementation starts*******************************'''  
         print('Building a SVM classifier with Stochastic Gradient Descent learning')
         sgd_svm = SGDClassifier(loss="hinge", penalty="l2", alpha=1e-5, random_state=111)
         sgd_svm.fit(features_train, labels_train)
@@ -709,7 +690,6 @@ class Length_Matrix:
         print(df)
         print('\n')
         email_class_obj.plot(df)
-        '''************************self-implementation ends************************'''
         
     def Length_stemming(self, features_stem):
         global emails, clfs_2, df
@@ -733,7 +713,6 @@ class Length_Matrix:
         df10 = pd.DataFrame.from_items(pred_scores,orient='index', columns=['Score4'])
         print(df10)
         
-        '''****************************self-implementation starts*******************************'''
         print('Building a SVM classifier with Stochastic Gradient Descent learning')
         sgd_svm = SGDClassifier(loss="hinge", penalty="l2", alpha=1e-4, random_state=111)
         sgd_svm.fit(features_train, labels_train)
@@ -904,5 +883,3 @@ email_class_stem.Stochastic_Gradient_stem(features_train_count_stem, features_te
 email_class_stem.Vote_Stem(features_train_count_stem, features_test_count_stem, labels_train_count_stem, labels_test_count_stem)
 
 '''*************************** END BLOCK-4 ***********************************************'''
-
-'''*****************************self-implementation ends*********************************'''
