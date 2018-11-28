@@ -5,7 +5,7 @@ Created on Tue May  8 23:47:09 2018
 @author: Simar
 """
 
-'''SELF-IMPLEMENTED'''
+
 #importing libraries
 import re
 import random
