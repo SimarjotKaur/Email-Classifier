@@ -1,10 +1,29 @@
-DESCRIPTION:
-------------
-Various classifiers are trained and tested using Python. It includes the classification of emails into three categories: Normal, Spam and Fraud.
+EMAIL-CLASSIFICATION:
+--------------------
+This is a text classification project which is a multi-class classification. Various classifiers are trained and tested using Python. It includes the classification of emails based on their content into three categories: Normal, Spam and Fraud.
 
-Various classifiers including Support Vector Machine (SVM), K-Nearest Neighbour, Multinomial Naïve Bayes, Decision Tree, Logistic Regression, SVM with Stochastic Gradient Descent classifier (SGD-SVM) and Logistic Regression with Stochastic Gradient Descent classifier (SGD-LR) are trained on features extracted using TF-IDF vectorizer. Further, ensemble classifiers including Random Forest (RF), AdaBoost, Bagging (BGC), Extra Trees and, Vote on various classifier combinations are trained in a similar manner. Also, the effect of stemming on the model performance is observed. Additionally, classifiers are trained on the features extracted using Count Vectorizer. 
+Various classifiers including Support Vector Machine (SVM), K-Nearest Neighbour, Multinomial Naïve Bayes, Decision Tree, Logistic Regression, SVM with Stochastic Gradient Descent classifier (SGD-SVM) and Logistic Regression with Stochastic Gradient Descent classifier (SGD-LR) are trained on features extracted using TF-IDF vectorizer.
+Further, ensemble classifiers including Random Forest (RF), AdaBoost, Bagging (BGC), Extra Trees and, Vote on various classifier combinations are trained in a similar manner.
+Also, the effect of stemming on the model performance is observed. Additionally, classifiers are trained on the features extracted using Count Vectorizer. 
 
 Finally, all the models are evaluated based on standard evaluation metrics: Accuracy, Precision, Recall, F-score and Confusion Matrix. It is observed that Vote on SVM, BGC and RF outperform all the models, followed by SGD-SVM, trained on TF-IDF features without stemming.
+
+PREREQUISITES:
+--------------
+<ul>
+   <Li> Pyhton 3.x. </li>
+  <Li> Libraries: </li>
+  <ul>
+    <Li> Pandas </li>
+    <Li> Sklearn </li>
+    <Li> Nltk </li>
+    <Li> Numpy </li>
+    <Li> Matplotlib </li>
+    <Li> String </li>
+    <Li> re </li>
+    <Li> Random </li>
+  </Ul>
+</Ul>
 
 CODE BRIEF:
 ----------
