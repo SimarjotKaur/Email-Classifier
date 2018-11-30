@@ -11,7 +11,7 @@ Finally, all the models are evaluated based on standard evaluation metrics: Accu
 PREREQUISITES:
 --------------
 <ul>
-   <Li> Pyhton 3.x. </li>
+   <Li> Python 3.x. </li>
   <Li> Libraries: </li>
   <ul>
     <Li> Pandas </li>
@@ -33,10 +33,11 @@ I. Extract_email.py:
 This file involves the process of Data Extraction. In this, 1000 fraud emails from the ‘fradulent_emails.txt’ file containing 4075 emails are extracted and, 1000 emails for each Spam and Normal category are extracted from ‘emails.csv’ file that contains 5730 emails which is a combination of both Spam and Normal emails. Finally, all the extracted emails are concatenated into one csv file. This csv file contains the final dataset that contains 3000 emails with 1000 emails for each category.
 
 NOTE: For the proper execution of the code, update the paths for:
-a. the final csv file to be created (‘final_dataset.csv’).
-b. fradulent_emails.txt file (file containing fraud emails).
-c. emails.csv file (file containing spam and normal emails).
-
+<ul>
+   <li>the final csv file to be created (‘final_dataset.csv’)</li>
+   <li>fradulent_emails.txt file (file containing fraud emails)</li>
+   <li>emails.csv file (file containing spam and normal emails)</li>
+</ul>
 II. Email_Classification.py:
 This file involves the complete process of email processing and classification:
 1. Data Preprocessing:
