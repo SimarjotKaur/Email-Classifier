@@ -40,6 +40,7 @@ NOTE: For the proper execution of the code, update the paths for:
 </ul>
 II. Email_Classification.py:
 This file involves the complete process of email processing and classification:
+
 1. Data Preprocessing:
 Functions are created for the removal of punctuation and stopwords. Another function is created for stemming of the content.
 In order to extract the relevant features 2 vectors were used: TF-IDF vectors and Count Vectors. First, the entire process of classification is performed by the features created using TF-IDF and then the features created by Count- Vectorizer are processed and observed. Then the features are split into train and test set in the ratio 7:3 respectively.
